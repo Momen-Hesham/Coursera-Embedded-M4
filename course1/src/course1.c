@@ -18,11 +18,11 @@
  */
 
 #include <stdint.h>
-#include "../include/common/course1.h"
-#include "../include/common/platform.h"
-#include "../include/common/memory.h"
-#include "../include/common/data.h"
-#include "../include/common/stats.h"
+#include "course1.h"
+#include "platform.h"
+#include "memory.h"
+#include "data.h"
+#include "stats.h"
 #define BASE_16 16
 #define BASE_10 10
 int8_t test_data1() {

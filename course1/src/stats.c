@@ -24,19 +24,21 @@
 
 #include <stdint.h>
 #include <stdio.h>
-#include "../include/common/platform.h"
-#include "../include/common/stats.h"
+#include "platform.h"
+#include "stats.h"
 #include <stdlib.h>
 /* Size of the Data Set */
 #define SIZE (40)
 
 
 void print_array(unsigned char ptr[],int length)
-{
+{	
+	#ifdef VERBOSE
 	for(int i=0;i<length;i++)
 	{
 		PRINTF("%d : %d \n",(i+1),*(ptr+i));
 	}
+	#endif
 }
 
 unsigned char find_mean(unsigned char ptr[],int length)

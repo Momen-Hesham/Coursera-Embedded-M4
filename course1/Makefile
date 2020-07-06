@@ -26,7 +26,8 @@ include sources.mk
 
 # Platform Overrides
 PLATFORM= HOST
-
+VERBOSE=NONE
+COURSE1=NONE
 # Architectures Specific Flags
 LINKER_FILE = msp432p401r.lds
 CPU =cortex-m4
@@ -35,14 +36,15 @@ SPECS =nosys.specs
 FPU =fpv4-sp-d16
 FBABL =hard
 
-TARGET=c1m2
-
+TARGET=output
+Ver=-DVERBOSE
+Cou=-DCOURSE1
 # Compiler Flags and Defines
 ifeq ($(PLATFORM), HOST)
 CC = gcc
 LD = ld
 LDFLAGS = -Wl,-Map=$(TARGET).map
-CFLAGS =-DHOST -Wall -Werror -g -O0 -std=c99
+CFLAGS =-DHOST -Wall -Werror -g -O0 -std=c99 -lm
 CPPFLAGS =$(INCLUDES)
 OBJ= objdump
 else
@@ -52,6 +54,14 @@ LDFLAGS=-Wl,-Map=$(TARGET).map -T../$(LINKER_FILE)
 CFLAGS=-DMSP432 -Wall -Werror -g -O0 -std=c99 -mcpu=$(CPU) -march=$(ARCH) --specs=$(SPECS) -mthumb -mfpu=$(FPU) -mfloat-abi=$(FBABL)
 CPPFLAGS=$(INCLUDES)
 OBJ=arm-none-ebai-objdump
+endif
+
+ifeq ($(VERBOSE), VERBOSE)
+CFLAGS+=$(Ver)
+endif
+
+ifeq ($(COURSE1), COURSE1)
+CFLAGS+=$(Cou)
 endif
 
 OBJS=$(SOURCES:.c=.o)

@@ -20,7 +20,7 @@
  * @date April 1 2017
  *
  */
-#include "../include/common/memory.h"
+#include "memory.h"
 
 /***********************************************************
  Function Definitions
@@ -122,7 +122,7 @@ int32_t * reserve_words(size_t length)
     return temp;
 }
 
-void free_words(int32_t * src)
+void free_words(uint32_t * src)
 {
   free(src);
 }

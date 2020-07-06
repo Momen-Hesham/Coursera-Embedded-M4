@@ -21,7 +21,7 @@
  *
  */
 
-#include "../include/common/course1.h"
+#include "course1.h"
 
 
 #include<stdlib.h>

@@ -1,4 +1,5 @@
 
+
 #******************************************************************************
 # Copyright (C) 2017 by Alex Fosdick - University of Colorado
 #
@@ -12,22 +13,25 @@
 
 # Add your Source files to this variable
 ifeq ($(PLATFORM), HOST)
-SOURCES =main.c \
-         memory.c
+SOURCES =src/main.c \
+         src/memory.c \
+         src/data.c \
+         src/stats.c \
+         src/course1.c
 else
-SOURCES=main.c \
-        memory.c \
-        interrupts_msp432p401r_gcc.c \
-        startup_msp432p401r_gcc.c \
-        system_msp432p401r.c
+SOURCES=src/main.c \
+        src/memory.c \
+        src/interrupts_msp432p401r_gcc.c \
+        src/startup_msp432p401r_gcc.c \
+        src/system_msp432p401r.c
 endif
 # Add your include paths to this variable
 ifeq ($(PLATFORM), HOST)
-INCLUDES = -I ../include/common
+INCLUDES = -I include/common
 else
-INCLUDES= -I ../include/common \
-	  -I ../include/CMSIS \
-          -I ../include/msp432
+INCLUDES= -I include/common \
+	  -I include/CMSIS \
+          -I include/msp432
 endif
 
 

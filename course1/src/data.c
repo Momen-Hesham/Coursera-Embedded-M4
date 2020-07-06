@@ -1,4 +1,4 @@
-#include "../include/common/data.h"
+#include "data.h"
 #include<math.h>
 #include <stdio.h>
 uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base)
